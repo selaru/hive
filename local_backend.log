@@ -1,0 +1,124 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+warning: unused import: `Context`
+ --> crates/workflow/src/engine.rs:2:14
+  |
+2 | use anyhow::{Context, Result};
+  |              ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `hive-workflow` (lib) generated 1 warning (run `cargo fix --lib -p hive-workflow` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 0.27s
+     Running `target/release/hive-api`
+[2m2026-07-24T14:46:02.483327Z[0m [32m INFO[0m [2msqlx::postgres::notice[0m[2m:[0m relation "_sqlx_migrations" already exists, skipping
+[2m2026-07-24T14:46:02.486094Z[0m [32m INFO[0m [2mhive_api[0m[2m:[0m Database migrations complete
+[2m2026-07-24T14:46:02.491889Z[0m [32m INFO[0m [2mhive_api[0m[2m:[0m Auto-importing skills from: /Users/cristi/.agents/skills
+[2m2026-07-24T14:46:02.494286Z[0m [32m INFO[0m [2mhive_skills::importer[0m[2m:[0m Scanning directory for skills: /Users/cristi/.agents/skills
+[2m2026-07-24T14:46:02.496980Z[0m [32m INFO[0m [2mhive_skills::importer[0m[2m:[0m Found 15 skills in /Users/cristi/.agents/skills
+[2m2026-07-24T14:46:02.499517Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: fullstack-dev
+[2m2026-07-24T14:46:02.501047Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: using-superpowers
+[2m2026-07-24T14:46:02.501689Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: code-review
+[2m2026-07-24T14:46:02.502812Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: terraform-skill
+[2m2026-07-24T14:46:02.503725Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: code-review-excellence
+[2m2026-07-24T14:46:02.505202Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: android-native-dev
+[2m2026-07-24T14:46:02.506594Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: ios-simulator-skill
+[2m2026-07-24T14:46:02.507250Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: requesting-code-review
+[2m2026-07-24T14:46:02.507847Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: receiving-code-review
+[2m2026-07-24T14:46:02.509067Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: writing-skills
+[2m2026-07-24T14:46:02.510003Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: swiftui-expert-skill
+[2m2026-07-24T14:46:02.511205Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: frontend-dev
+[2m2026-07-24T14:46:02.511851Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: ios-application-dev
+[2m2026-07-24T14:46:02.512598Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: verification-before-completion
+[2m2026-07-24T14:46:02.513429Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: security-review
+[2m2026-07-24T14:46:02.513436Z[0m [32m INFO[0m [2mhive_api[0m[2m:[0m Skill import from /Users/cristi/.agents/skills complete: 15 imported, 0 failed
+[2m2026-07-24T14:46:02.513538Z[0m [32m INFO[0m [2mhive_api[0m[2m:[0m Auto-importing skills from: /Users/cristi/multica_workspaces
+[2m2026-07-24T14:46:02.513714Z[0m [32m INFO[0m [2mhive_skills::importer[0m[2m:[0m Scanning directory for skills: /Users/cristi/multica_workspaces
+[2m2026-07-24T14:46:02.528485Z[0m [32m INFO[0m [2mhive_skills::importer[0m[2m:[0m Found 83 skills in /Users/cristi/multica_workspaces
+[2m2026-07-24T14:46:02.529477Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-skill-importing
+[2m2026-07-24T14:46:02.530119Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-projects-and-resources
+[2m2026-07-24T14:46:02.531019Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-creating-agents
+[2m2026-07-24T14:46:02.531856Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-squads
+[2m2026-07-24T14:46:02.532457Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: deep-research
+[2m2026-07-24T14:46:02.533238Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: find-skills
+[2m2026-07-24T14:46:02.533767Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: executing-plans
+[2m2026-07-24T14:46:02.534482Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: documentation-writer
+[2m2026-07-24T14:46:02.535007Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: user-story-writing
+[2m2026-07-24T14:46:02.535755Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-runtimes-and-repos
+[2m2026-07-24T14:46:02.536456Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: scrum-master
+[2m2026-07-24T14:46:02.537410Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-working-on-issues
+[2m2026-07-24T14:46:02.538129Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: writing-plans
+[2m2026-07-24T14:46:02.538872Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-mentioning
+[2m2026-07-24T14:46:02.539462Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-autopilots
+[2m2026-07-24T14:46:02.540435Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: the-news
+[2m2026-07-24T14:46:02.541351Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-skill-importing
+[2m2026-07-24T14:46:02.541930Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-projects-and-resources
+[2m2026-07-24T14:46:02.542995Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-creating-agents
+[2m2026-07-24T14:46:02.543708Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-squads
+[2m2026-07-24T14:46:02.544419Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: mobile-ios-design
+[2m2026-07-24T14:46:02.545224Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: deep-research
+[2m2026-07-24T14:46:02.545895Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: find-skills
+[2m2026-07-24T14:46:02.546507Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: documentation-writer
+[2m2026-07-24T14:46:02.547291Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: architecture
+[2m2026-07-24T14:46:02.547931Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-runtimes-and-repos
+[2m2026-07-24T14:46:02.548788Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: architecture-blueprint-generator
+[2m2026-07-24T14:46:02.549807Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-working-on-issues
+[2m2026-07-24T14:46:02.550553Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: writing-plans
+[2m2026-07-24T14:46:02.551339Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-mentioning
+[2m2026-07-24T14:46:02.552101Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-autopilots
+[2m2026-07-24T14:46:02.552832Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: the-news
+[2m2026-07-24T14:46:02.553596Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-skill-importing
+[2m2026-07-24T14:46:02.554182Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-projects-and-resources
+[2m2026-07-24T14:46:02.555128Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-creating-agents
+[2m2026-07-24T14:46:02.555877Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-squads
+[2m2026-07-24T14:46:02.556554Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: deep-research
+[2m2026-07-24T14:46:02.557480Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: find-skills
+[2m2026-07-24T14:46:02.558053Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: documentation-writer
+[2m2026-07-24T14:46:02.558567Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: user-story-writing
+[2m2026-07-24T14:46:02.559199Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-runtimes-and-repos
+[2m2026-07-24T14:46:02.560011Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-working-on-issues
+[2m2026-07-24T14:46:02.560894Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-mentioning
+[2m2026-07-24T14:46:02.561425Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-autopilots
+[2m2026-07-24T14:46:02.562104Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: the-news
+[2m2026-07-24T14:46:02.563079Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: golang-security
+[2m2026-07-24T14:46:02.563812Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-skill-importing
+[2m2026-07-24T14:46:02.564921Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: sleek-design-mobile-apps
+[2m2026-07-24T14:46:02.565527Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-projects-and-resources
+[2m2026-07-24T14:46:02.566599Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-creating-agents
+[2m2026-07-24T14:46:02.567282Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-squads
+[2m2026-07-24T14:46:02.568139Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: golang-design-patterns
+[2m2026-07-24T14:46:02.568716Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: mobile-ios-design
+[2m2026-07-24T14:46:02.569267Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: rust-best-practices
+[2m2026-07-24T14:46:02.570034Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: find-skills
+[2m2026-07-24T14:46:02.570513Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: executing-plans
+[2m2026-07-24T14:46:02.571061Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: documentation-writer
+[2m2026-07-24T14:46:02.571586Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-runtimes-and-repos
+[2m2026-07-24T14:46:02.572350Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: rust-patterns
+[2m2026-07-24T14:46:02.573331Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-working-on-issues
+[2m2026-07-24T14:46:02.573816Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: modern-javascript-patterns
+[2m2026-07-24T14:46:02.574472Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: golang-code-style
+[2m2026-07-24T14:46:02.575305Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-mentioning
+[2m2026-07-24T14:46:02.575794Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-autopilots
+[2m2026-07-24T14:46:02.576546Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: golang-security
+[2m2026-07-24T14:46:02.577345Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-skill-importing
+[2m2026-07-24T14:46:02.578178Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: sleek-design-mobile-apps
+[2m2026-07-24T14:46:02.578898Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-projects-and-resources
+[2m2026-07-24T14:46:02.579590Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-creating-agents
+[2m2026-07-24T14:46:02.580175Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-squads
+[2m2026-07-24T14:46:02.581135Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: golang-design-patterns
+[2m2026-07-24T14:46:02.581710Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: mobile-ios-design
+[2m2026-07-24T14:46:02.582321Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: rust-best-practices
+[2m2026-07-24T14:46:02.582875Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: find-skills
+[2m2026-07-24T14:46:02.583337Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: executing-plans
+[2m2026-07-24T14:46:02.583991Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: documentation-writer
+[2m2026-07-24T14:46:02.584529Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-runtimes-and-repos
+[2m2026-07-24T14:46:02.585238Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: rust-patterns
+[2m2026-07-24T14:46:02.586102Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-working-on-issues
+[2m2026-07-24T14:46:02.586556Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: modern-javascript-patterns
+[2m2026-07-24T14:46:02.587149Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: golang-code-style
+[2m2026-07-24T14:46:02.587708Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-mentioning
+[2m2026-07-24T14:46:02.588318Z[0m [34mDEBUG[0m [2mhive_api[0m[2m:[0m Imported skill: multica-autopilots
+[2m2026-07-24T14:46:02.588323Z[0m [32m INFO[0m [2mhive_api[0m[2m:[0m Skill import from /Users/cristi/multica_workspaces complete: 83 imported, 0 failed
+[2m2026-07-24T14:46:02.590642Z[0m [32m INFO[0m [2mhive_api[0m[2m:[0m Hive API listening on 0.0.0.0:3000

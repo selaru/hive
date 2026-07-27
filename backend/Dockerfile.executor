@@ -1,0 +1,32 @@
+# ── Build stage ───────────────────────────────────────────────────────────────
+FROM rust:1.94.1-slim AS builder
+
+RUN apt-get update && apt-get install -y pkg-config libssl-dev && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY Cargo.toml Cargo.lock* ./
+COPY crates ./crates
+COPY migrations ./migrations
+
+RUN cargo build --release --bin hive-executor
+
+# ── Runtime stage ─────────────────────────────────────────────────────────────
+FROM debian:trixie-slim
+
+# Install Docker CLI (for Docker-in-Docker execution)
+RUN apt-get update && \
+    apt-get install -y ca-certificates curl gnupg && \
+    install -m 0755 -d /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+    https://download.docker.com/linux/debian bookworm stable" > /etc/apt/sources.list.d/docker.list && \
+    apt-get update && apt-get install -y docker-ce-cli && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY --from=builder /app/target/release/hive-executor .
+
+RUN mkdir -p /app/projects
+
+EXPOSE 3001
+CMD ["./hive-executor"]

@@ -1,0 +1,98 @@
+services:
+
+  # ── Reverse proxy + static frontend ──────────────────────────────────────
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - frontend_dist:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+
+  # ── Frontend (build once, serve via nginx) ────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - frontend_dist:/dist
+    environment:
+      VITE_API_URL: http://localhost/api/v1
+      VITE_WS_URL: ws://localhost/ws
+
+  # ── Backend API + workflow engine ─────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgres://hive:hive@postgres:5432/hive}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+      EXECUTOR_URL: ${EXECUTOR_URL:-http://executor:3001}
+      CONTAINER_PROJECTS_DIR: /app/projects
+      RUST_LOG: ${RUST_LOG:-hive_api=debug,info}
+      AWS_PROFILE: ${AWS_PROFILE:-default}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      # Skill import directories (will be scanned at startup if mounted)
+      OPENCODE_SKILLS_DIR: ${OPENCODE_SKILLS_DIR:+/app/skills/opencode}
+      MULTICA_SKILLS_DIR: ${MULTICA_SKILLS_DIR:+/app/skills/multica}
+      CUSTOM_SKILLS_DIRS: ${CUSTOM_SKILLS_DIRS:-}
+    volumes:
+      - ${PROJECTS_DIR:-./projects}:/app/projects
+      - ${HOME}/.aws:/root/.aws:ro   # AWS SSO credentials (read-only)
+      # Mount skill directories if configured (read-only)
+      - ${OPENCODE_SKILLS_DIR:-/tmp/empty-opencode-skills}:/app/skills/opencode:ro
+      - ${MULTICA_SKILLS_DIR:-/tmp/empty-multica-skills}:/app/skills/multica:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: unless-stopped
+
+  # ── Sandboxed code execution service ─────────────────────────────────────
+  executor:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.executor
+    volumes:
+      - ${PROJECTS_DIR:-./projects}:/app/projects
+      - /var/run/docker.sock:/var/run/docker.sock   # Docker-in-Docker
+    privileged: true
+    restart: unless-stopped
+
+  # ── PostgreSQL ────────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-hive}
+      POSTGRES_USER: ${POSTGRES_USER:-hive}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-hive}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-hive}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ── Redis ─────────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  frontend_dist:

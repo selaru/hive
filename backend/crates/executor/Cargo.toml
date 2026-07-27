@@ -1,0 +1,20 @@
+[package]
+name    = "hive-executor"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "hive-executor"
+path = "src/main.rs"
+
+[dependencies]
+hive-core  = { path = "../core" }
+tokio      = { workspace = true }
+axum       = { workspace = true }
+serde      = { workspace = true }
+serde_json = { workspace = true }
+anyhow     = { workspace = true }
+tracing    = { workspace = true }
+tracing-subscriber = { workspace = true }
+dotenvy    = { workspace = true }
+uuid       = { workspace = true }

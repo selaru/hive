@@ -1,0 +1,62 @@
+[workspace]
+members = [
+    "crates/api",
+    "crates/core",
+    "crates/workflow",
+    "crates/providers",
+    "crates/skills",
+    "crates/executor",
+]
+resolver = "2"
+
+[workspace.dependencies]
+# Async runtime
+tokio          = { version = "1",    features = ["full"] }
+tokio-stream   = { version = "0.1" }
+futures        = { version = "0.3" }
+
+# Web framework
+axum           = { version = "0.8",  features = ["ws", "macros"] }
+axum-extra     = { version = "0.10", features = ["typed-header"] }
+tower          = { version = "0.5",  features = ["full"] }
+tower-http     = { version = "0.6",  features = ["cors", "trace"] }
+
+# Database
+sqlx           = { version = "0.8",  features = ["runtime-tokio", "postgres", "uuid", "chrono", "json"] }
+
+# Redis
+deadpool-redis = { version = "0.18", features = ["rt_tokio_1"] }
+redis          = { version = "0.27", features = ["tokio-comp", "aio"] }
+
+# LLM clients
+async-openai   = { version = "0.27" }
+
+# AWS (Phase 7 — uncomment when adding Bedrock support)
+aws-config             = { version = "1", features = ["behavior-version-latest"] }
+aws-sdk-bedrockruntime = { version = "1" }
+
+# Serialisation
+serde          = { version = "1",    features = ["derive"] }
+serde_json     = { version = "1" }
+serde_yaml     = { version = "0.9" }
+
+# Types
+uuid           = { version = "1",    features = ["v4", "serde"] }
+chrono         = { version = "0.4",  features = ["serde"] }
+
+# HTTP client
+reqwest        = { version = "0.12", features = ["json", "stream"] }
+async-trait    = { version = "0.1" }
+
+# Error handling
+anyhow         = { version = "1" }
+thiserror      = { version = "2" }
+
+# Logging / tracing
+tracing              = { version = "0.1" }
+tracing-subscriber   = { version = "0.3", features = ["env-filter", "json"] }
+
+# Utilities
+dotenvy        = { version = "0.15" }
+slug           = { version = "0.1" }
+

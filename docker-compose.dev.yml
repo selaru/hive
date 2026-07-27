@@ -1,0 +1,47 @@
+# Development overrides — hot reload for backend and frontend
+# Usage: docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules   # preserve container node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost/api/v1
+      VITE_WS_URL: ws://localhost/ws
+    command: npm run dev -- --host
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./backend:/app
+      - cargo_cache:/usr/local/cargo/registry
+      - target_cache:/app/target
+    command: cargo watch -x 'run --bin hive-api'
+    environment:
+      DATABASE_URL: postgres://hive:hive@postgres:5432/hive
+      REDIS_URL: redis://redis:6379
+      EXECUTOR_URL: http://executor:3001
+      CONTAINER_PROJECTS_DIR: /app/projects
+      RUST_LOG: hive_api=debug,info
+    ports:
+      - "3000:3000"
+
+volumes:
+  cargo_cache:
+  target_cache:

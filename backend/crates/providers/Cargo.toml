@@ -1,0 +1,22 @@
+[package]
+name    = "hive-providers"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hive-core      = { path = "../core" }
+tokio          = { workspace = true }
+tokio-stream   = { workspace = true }
+futures        = { workspace = true }
+async-openai   = { workspace = true }
+aws-config             = { workspace = true }   # Phase 7
+aws-sdk-bedrockruntime = { workspace = true }   # Phase 7
+aws-smithy-types = { version = "1", features = ["serde-serialize", "serde-deserialize"] }
+serde          = { workspace = true }
+serde_json     = { workspace = true }
+uuid           = { workspace = true }
+anyhow         = { workspace = true }
+thiserror      = { workspace = true }
+tracing        = { workspace = true }
+reqwest        = { workspace = true }
+async-trait    = { workspace = true }

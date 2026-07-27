@@ -1,0 +1,6 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.22s
+     Running `target/release/hive-executor`
+[2m2026-07-24T14:46:01.882555Z[0m [32m INFO[0m [2mhive_executor[0m[2m:[0m Hive Executor listening on 0.0.0.0:3001
